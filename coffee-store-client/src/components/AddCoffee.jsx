@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 const AddCoffee = () => {
   const handleAddCoffee = (e) => {
     e.preventDefault();
@@ -14,7 +15,17 @@ const AddCoffee = () => {
       body: JSON.stringify(newCoffee),
     })
       .then((res) => res.json())
-      .then((data) => console.log("After adding to db", data));
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Coffee Added Successfully!",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+        // form.reset();
+      });
   };
   return (
     <div className="p-24">
@@ -65,12 +76,12 @@ const AddCoffee = () => {
               />
             </fieldset>
             <fieldset className="fieldset">
-              <label className="label font-bold">Category</label>
+              <label className="label font-bold">Price</label>
               <input
                 type="text"
-                name="category"
+                name="price"
                 className="input w-full focus:outline-none"
-                placeholder="Enter Coffee Category"
+                placeholder="Enter Coffee Price"
               />
             </fieldset>
             <fieldset className="fieldset">
