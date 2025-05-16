@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import "./App.css";
 import AddCoffee from "./components/AddCoffee";
 import Home from "./components/Home";
 import UpdateCoffee from "./components/UpdateCoffee";
-import "./index.css";
 import MainLayout from "./layouts/MainLayout";
 
 const router = createBrowserRouter([
