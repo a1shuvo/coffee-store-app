@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "682769036a782116e8821e4f",
+    "name": "Black Coffee",
+    "quantity": "20",
+    "supplier": "Mr. Kala Samsu",
+    "taste": "Sweet and Bitter",
+    "price": "1000",
+    "details": "Hot Water and Black Coffee",
+    "photo": "https://i.postimg.cc/jqJ6r1Jy/1.png"
+  },
+  {
+    "_id": "6827698b6a782116e8821e50",
+    "name": "White Coffee with Milk",
+    "quantity": "30",
+    "supplier": "Mr. White Samsu",
+    "taste": "Sweet and Milky",
+    "price": "900",
+    "details": "Hot Water and White Coffee",
+    "photo": "https://i.postimg.cc/tJh2Rv7R/2.png"
+  },
+  {
+    "_id": "68276a006a782116e8821e51",
+    "name": "Espresso Coffee",
+    "quantity": "45",
+    "supplier": "Mr. Chupa Rustom",
+    "taste": "Bitter",
+    "price": "850",
+    "details": "Hot Water and Espresso Coffee",
+    "photo": "https://i.postimg.cc/QdMkvdgd/3.png"
+  },
+  {
+    "_id": "68276a716a782116e8821e52",
+    "name": "Americano Coffee",
+    "quantity": "65",
+    "supplier": "Mr. Chupa Rustom",
+    "taste": "Energtic",
+    "price": "955",
+    "details": "Hot Water and Energetic Americano Coffee",
+    "photo": "https://i.postimg.cc/bv7xG07Z/4.png"
+  },
+  {
+    "_id": "68276aee6a782116e8821e53",
+    "name": "Macchiato Coffee",
+    "quantity": "90",
+    "supplier": "Mr. Modhu Mia",
+    "taste": "Modhu Modhu",
+    "price": "1260",
+    "details": "Hot Water and Macchiato Coffee",
+    "photo": "https://i.postimg.cc/c4xQ8LbB/5.png"
+  },
+  {
+    "_id": "68276b456a782116e8821e54",
+    "name": "Decaf Coffee",
+    "quantity": "103",
+    "supplier": "Mr. Chawala",
+    "taste": "Taste like Tea",
+    "price": "650",
+    "details": "Hot Water and Decaf Coffee",
+    "photo": "https://i.postimg.cc/zvJRWx0G/6.png"
+  }
+]

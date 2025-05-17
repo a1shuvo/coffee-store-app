@@ -1,10 +1,10 @@
 import { MdDelete, MdEdit, MdRemoveRedEye } from "react-icons/md";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee }) => {
   const { _id, name, price, quantity, photo } = coffee;
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -15,16 +15,25 @@ const CoffeeCard = ({ coffee }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // Swal.fire({
-        //   title: "Deleted!",
-        //   text: "Coffee has been deleted.",
-        //   icon: "success",
-        //   showConfirmButton: false,
-        //   timer: 1500,
-        // });
+        fetch(`http://localhost:3000/coffees/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Coffee has been deleted.",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
       }
     });
   };
+
   return (
     <div>
       <div className="card card-side bg-[#F5F4F1] shadow-sm">
@@ -49,12 +58,16 @@ const CoffeeCard = ({ coffee }) => {
           </div>
           <div className="card-actions">
             <div className="join join-vertical space-y-2">
-              <button className="btn p-2 bg-[#D2B48C] rounded-md text-white">
-                <MdRemoveRedEye size={20} />
-              </button>
-              <button className="btn p-2 bg-[#3C393B] rounded-md text-white">
-                <MdEdit size={20} />
-              </button>
+              <Link to={`/coffee/${_id}`}>
+                <button className="btn p-2 bg-[#D2B48C] rounded-md text-white">
+                  <MdRemoveRedEye size={20} />
+                </button>
+              </Link>
+              <Link to={`/update/${_id}`}>
+                <button className="btn p-2 bg-[#3C393B] rounded-md text-white">
+                  <MdEdit size={20} />
+                </button>
+              </Link>
               <button
                 onClick={() => handleDelete(_id)}
                 className="btn p-2 bg-[#EA4744] rounded-md text-white"
