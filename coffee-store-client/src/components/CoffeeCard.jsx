@@ -2,9 +2,10 @@ import { MdDelete, MdEdit, MdRemoveRedEye } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const CoffeeCard = ({ coffee }) => {
+const CoffeeCard = ({ coffee, onDelete }) => {
   const { _id, name, price, quantity, photo } = coffee;
-  const handleDelete = (_id) => {
+
+  const handleDelete = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -15,21 +16,7 @@ const CoffeeCard = ({ coffee }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/coffees/${_id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount) {
-              Swal.fire({
-                title: "Deleted!",
-                text: "Coffee has been deleted.",
-                icon: "success",
-                showConfirmButton: false,
-                timer: 1500,
-              });
-            }
-          });
+        onDelete(_id);
       }
     });
   };
@@ -69,7 +56,7 @@ const CoffeeCard = ({ coffee }) => {
                 </button>
               </Link>
               <button
-                onClick={() => handleDelete(_id)}
+                onClick={handleDelete}
                 className="btn p-2 bg-[#EA4744] rounded-md text-white"
               >
                 <MdDelete size={20} />
